@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Empresa e Participantes</title>
+  <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+  <main>
+    <div class="form-container">
+      
+      <div class="header-top">
+        <h1>Cadastro da Empresa</h1>
+        <div class="logo-top-right" onclick="window.location.href='index.html'">
+          <img src="img/logo-100os-big.png" alt="100Open">
+        </div>
+      </div>
+      
+      <p class="subtitle">Preencha os dados da sua empresa e adicione os participantes do evento</p>
+
+      <form id="form-empresa">
+
+        <!-- Empresa -->
+        <div class="section">
+          <h2>Dados da Empresa</h2>
+          <div class="grid-2">
+            <input type="text" id="nome_empresa" placeholder="Razão Social *" required>
+            <input type="email" id="email" placeholder="Email *" required>
+            <input type="text" id="telefone" placeholder="Telefone" oninput="mascaraTelefone(this)">
+            <input type="text" id="cpf" placeholder="CPF" oninput="mascaraCPF(this)">
+            <input type="text" id="cnpj" placeholder="CNPJ" oninput="mascaraCNPJ(this)">
+            <input type="text" id="logradouro" placeholder="Logradouro *" required>
+            <input type="text" id="numero" placeholder="Número *" required>
+            <input type="text" id="bairro" placeholder="Bairro *" required>
+            <input type="text" id="cidade" placeholder="Cidade *" required>
+            <input type="text" id="uf" placeholder="UF *" maxlength="2" required>
+            <input type="text" id="cep" placeholder="CEP *" required>
+            <input type="text" id="complemento" placeholder="Complemento">
+          </div>
+        </div>
+
+        <!-- Participantes -->
+        <div class="section">
+          <h2>Participantes</h2>
+          <div id="msg-participantes"></div>
+          <div id="participantes"></div>
+          <div class="actions">
+            <button type="button" class="btn-outline" onclick="adicionarParticipante()">+ Adicionar Participante</button>
+          </div>
+        </div>
+
+        <!-- Ações -->
+        <div class="actions">
+          <button type="submit" class="btn">Enviar Dados</button>
+          <button type="button" class="btn-outline" onclick="window.history.back()">Voltar</button>
+        </div>
+      </form>
+
+      <!-- Cupom -->
+      <section id="secao-cupom">
+        <h2>🏷️ Aplicar Cupom</h2>
+        <input type="text" id="cupom" placeholder="Digite o código do cupom">
+        <div class="actions">
+          <button type="button" class="btn" onclick="validarCupom()">Validar Cupom</button>
+        </div>
+        <p id="msg-cupom"></p>
+      </section>
+
+      <!-- Pagamento -->
+      <section id="pagamento">
+        <div id="wrapNormalBtn" class="pagamento-btn">
+          <h3>Comprar sem cupom</h3>
+          <div id="botaoNormal"></div>
+        </div>
+        <div id="wrapCupomBtn" class="pagamento-btn">
+          <h3>Comprar com cupom</h3>
+          <div id="botaoCupom"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/formulario.js"></script>
+</body>
+</html>

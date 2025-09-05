@@ -1,0 +1,119 @@
+:root {
+  --blue-light: #1e90ff;
+  --blue: #0a2a43;
+  --blue-dark: #081c2b;
+  --card: #12263f;
+  --text: #f5f5f5;
+  --muted: #c9c9c9;
+  --radius: 14px;
+  --shadow: 0 10px 25px rgba(0,0,0,.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, var(--blue-dark), var(--blue));
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo-top-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  max-width: 60px;
+  height: auto;
+  opacity: 0.85;
+  transition: transform 0.3s, opacity 0.3s;
+  cursor: pointer;
+  z-index: 1000;
+}
+.logo-top-right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.logo-top-right:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Card de login */
+.login-card {
+  background: var(--card);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: var(--blue-light);
+}
+
+.login-subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(30,144,255,.4);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--blue-light);
+  box-shadow: 0 0 6px rgba(30,144,255,0.6);
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+.btn.primary {
+  background: var(--blue-light);
+  color: #fff;
+  width: 100%;
+}
+.btn.primary:hover {
+  background: #0d6efd;
+}
+
+.btn.voltar-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  color: var(--blue-light);
+  font-size: 14px;
+}
+.btn.voltar-btn:hover {
+  color: #0d6efd;
+}

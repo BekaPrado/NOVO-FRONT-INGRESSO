@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Eventos - 100Open</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo-top-right" onclick="window.location.href='index.html'">
+  <img src="img/logo-100os-big.png" alt="100Open">
+</div>
+
+
+
+    <div class="top-actions">
+      <button class="btn" onclick="window.location.href='admin-login.html'">Área do Administrador</button>
+    </div>
+  </header>
+
+  <main>
+  <!-- 🔹 Carrossel -->
+  <div class="carousel-container">
+    <div class="carousel-slide fade">
+      <img src="img/carrossel1.jpg" alt=" 1">
+    </div>
+    <div class="carousel-slide fade">
+      <img src="img/carrossel2.jpg" alt="Evento destaque 2">
+    </div>
+    <div class="carousel-slide fade">
+      <img src="img/carrossel3.jpg" alt="Evento destaque 3">
+    </div>
+
+    <!-- Setas -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Dots -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </div>
+
+  <!-- 🔹 Lista de eventos -->
+  <h2 style="margin:30px 0 10px 20px;"></h2>
+  <div id="lista-eventos" class="eventos-grid"></div>
+</main>
+
+  <main>
+    <div id="lista-eventos" class="eventos-grid"></div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
+

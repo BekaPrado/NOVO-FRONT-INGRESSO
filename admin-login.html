@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login do Administrador</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/admin-login.css" />
+  <div class="logo-top-right" onclick="window.location.href='index.html'">
+  <img src="img/logo-100os-big.png" alt="100Open">
+</div>
+</head>
+
+<body>
+      <button class="btn voltar-btn" onclick="window.location.href='index.html'">← Voltar</button>
+
+  <div class="login-card">
+
+    <h1 class="login-title">Painel do Administrador</h1>
+    <p class="login-subtitle">Acesse com suas credenciais</p>
+
+    <form id="formLogin" class="login-form">
+      <input type="text" id="email" name="email" placeholder="Digite seu e-mail" required />
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+      <button type="submit" class="btn primary">Entrar</button>
+    </form>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toastContainer" class="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin-login.js"></script>
+</body>
+</html>

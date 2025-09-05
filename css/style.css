@@ -1,0 +1,326 @@
+:root {
+  --blue-light: #1e90ff;
+  --blue: #0a2a43;
+  --blue-dark: #081c2b;
+  --card: #12263f;
+  --text: #f5f5f5;
+  --muted: #c9c9c9;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 500 15px/1.6 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--blue-dark) 0%, var(--blue) 100%);
+  color: var(--text);
+}
+
+/* =======================
+   HEADER
+======================= */
+.topbar {
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--blue-light);
+}
+
+.top-actions .btn {
+  background: var(--blue-light);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 10px 22px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.top-actions .btn:hover {
+  background: #0d6efd;
+  transform: translateY(-2px);
+}
+
+/* Logo */
+.logo-top-right {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  max-width: 60px;
+  height: auto;
+  opacity: 0.85;
+  transition: transform 0.3s, opacity 0.3s;
+  cursor: pointer;
+  z-index: 1000;
+}
+.logo-top-right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.logo-top-right:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* =======================
+   CARROSSEL
+======================= */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  margin: 20px auto;
+  height: 60vh;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.carousel-slide {
+  display: none;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  filter: brightness(0.9);
+  border-bottom: 3px solid var(--blue-light);
+}
+
+/* Setas */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: var(--blue-light);
+  font-weight: bold;
+  font-size: 28px;
+  border-radius: 50%;
+  user-select: none;
+  transition: all 0.3s ease;
+  background: rgba(0,0,0,0.4);
+}
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Dots */
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: rgba(255,255,255,.4);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.4s;
+}
+.active, .dot:hover {
+  background-color: var(--blue-light);
+}
+
+/* =======================
+   EVENTOS
+======================= */
+.eventos-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+.titulo-eventos {
+  font-size: 26px;
+  color: var(--blue-light);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+.card-evento {
+  background: var(--card);
+  border: 1px solid rgba(30, 144, 255, 0.3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card-evento:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(30, 144, 255, 0.5);
+}
+.card-evento img {
+  width: 100%;
+  max-width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+.card-evento h2 {
+  color: var(--blue-light);
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+}
+.card-evento p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =======================
+   INPUTS & FORMULÁRIOS
+======================= */
+input, select {
+  padding: 12px 14px;
+  border: 1px solid rgba(30, 144, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--blue-light);
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+}
+
+.form-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-container h2, 
+.form-container h3 {
+  color: var(--blue-light);
+  margin-bottom: 10px;
+}
+
+/* =======================
+   DETALHES DO EVENTO
+======================= */
+.detalhes-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.detalhe-card {
+  background: var(--card);
+  border: 1px solid rgba(30, 144, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+.detalhe-card img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+.detalhe-card h1 {
+  color: var(--blue-light);
+  font-size: 28px;
+  margin-bottom: 1rem;
+}
+.detalhe-card p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+/* ========= Conteúdo rico da descrição ========= */
+.descricao-evento {
+  text-align: left;
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+
+.descricao-evento h1,
+.descricao-evento h2,
+.descricao-evento h3 {
+  color: var(--blue-light);
+  margin: 1rem 0 0.5rem;
+}
+
+.descricao-evento p {
+  margin: 0.5rem 0;
+}
+
+.descricao-evento ul,
+.descricao-evento ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.descricao-evento strong {
+  color: #fff;
+}
+
+.descricao-evento a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+
+/* =======================
+   BOTÕES
+======================= */
+.btn-comprar, .btn-detalhes, .detalhe-card .btn-comprar {
+  background: var(--blue-light);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: all .3s ease, box-shadow .3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(30, 144, 255, 0.4);
+  padding: 12px 24px;
+  min-width: 160px;
+}
+.btn-comprar:hover, .btn-detalhes:hover, .detalhe-card .btn-comprar:hover {
+  background: #0d6efd;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(30, 144, 255, 0.6);
+}
+.btn-comprar:active, .btn-detalhes:active, .detalhe-card .btn-comprar:active {
+  transform: scale(0.97);
+}

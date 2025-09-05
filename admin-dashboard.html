@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Painel do Administrador</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/admin-dashboard.css" />
+</head>
+<body>
+  <!-- verifica login antes de carregar o painel -->
+  <script>
+    if (localStorage.getItem("admin") !== "logado") {
+      location.href = "admin-login.html";
+    }
+    function logout() {
+      localStorage.removeItem("admin");
+      location.href = "admin-login.html";
+    }
+  </script>
+
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <span class="logo"></span>
+      <h1>Painel do Administrador</h1>
+    </div>
+    <div class="top-actions">
+      <button class="btn ghost" onclick="logout()">Sair</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Menu do administrador">
+      <button class="nav-btn active" id="btnCategorias" onclick="AdminUI.showCategorias()">
+        <span>📂</span> Categorias
+      </button>
+      <button class="nav-btn" id="btnEventos" onclick="AdminUI.showEventos()">
+        <span>📅</span> Eventos
+      </button>
+      <button class="nav-btn" id="btnCompras" onclick="AdminUI.showCompras()">
+        <span>🧾</span> Compras / Formulários
+      </button>
+      
+    </nav>
+
+    <main id="conteudo" class="content" role="main" tabindex="-1" aria-live="polite">
+      <!-- conteúdo dinâmico -->
+    </main>
+  </div>
+
+<!-- Modal genérico -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card" role="document">
+    <div class="modal-header">
+      <h2 id="modalTitle">Título</h2>
+      <button class="icon-btn" aria-label="Fechar" onclick="Modal.close()">✕</button>
+    </div>
+    <div id="modalBody" class="modal-body"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+
+  <!-- Toasts -->
+  <div id="toastContainer" class="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  
+<script src="js/api.js"></script>
+
+<!-- CKEditor Super-build -->
+<script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+
+<script src="js/admin-dashboard.js"></script>
+  
+</body>
+</html>
