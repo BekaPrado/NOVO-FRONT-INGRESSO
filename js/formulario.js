@@ -2,8 +2,22 @@
  * Objetivo: Script do formulário de compra e cadastro de participantes
  * Autor: Rebeka Marcelino
  * Data: 05/09/2025
- * Versão: 1.2 (validação mínima, máxima e duplicados)
+ * Versão: 1.5 (redirecionamento garantido ao voltar do PagSeguro)
  *************************************************************************************************/
+
+// 🔹 Garante que ao voltar do PagSeguro, redireciona para a home mesmo com cache
+window.addEventListener("pageshow", (event) => {
+  if (localStorage.getItem("compraRealizada") === "true") {
+    if (event.persisted) {
+      // Se a página voltou do bfcache → força reload
+      window.location.reload();
+    } else {
+      // Se recarregou normal → já redireciona
+      localStorage.removeItem("compraRealizada");
+      window.location.href = "index.html";
+    }
+  }
+});
 
 let empresaId = null;
 let eventoId = new URLSearchParams(window.location.search).get("eventoId");
@@ -157,6 +171,14 @@ document.getElementById("form-empresa").addEventListener("submit", async (e) => 
 
       if (eventoData) {
         document.getElementById("botaoNormal").innerHTML = eventoData.botao_pagseguro;
+
+        // 🔹 Captura clique no botão normal
+        const pagSeguroBtn = document.querySelector("#botaoNormal form, #botaoNormal a, #botaoNormal button");
+        if (pagSeguroBtn) {
+          pagSeguroBtn.addEventListener("click", () => {
+            localStorage.setItem("compraRealizada", "true");
+          });
+        }
       }
     } else {
       alert("Erro ao enviar os dados.");
@@ -182,6 +204,14 @@ async function validarCupom() {
       document.getElementById("wrapNormalBtn").style.display = "none";
       document.getElementById("botaoCupom").innerHTML = cupomAplicado.botao_pagseguro_html;
       document.getElementById("wrapCupomBtn").style.display = "block";
+
+      // 🔹 Captura clique no botão de cupom
+      const pagSeguroCupomBtn = document.querySelector("#botaoCupom form, #botaoCupom a, #botaoCupom button");
+      if (pagSeguroCupomBtn) {
+        pagSeguroCupomBtn.addEventListener("click", () => {
+          localStorage.setItem("compraRealizada", "true");
+        });
+      }
     } else {
       cupomAplicado = null;
       msg.textContent = "❌ Cupom inválido.";

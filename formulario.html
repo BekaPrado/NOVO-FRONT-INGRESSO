@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro Empresa e Participantes</title>
   <link rel="stylesheet" href="css/formulario.css">
+
+  <!-- 🔹 Impede cache para forçar reload ao voltar -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 </head>
 <body>
   <main>
@@ -20,7 +25,6 @@
       <p class="subtitle">Preencha os dados da sua empresa e adicione os participantes do evento</p>
 
       <form id="form-empresa">
-
         <!-- Empresa -->
         <div class="section">
           <h2>Dados da Empresa</h2>
@@ -58,7 +62,7 @@
       </form>
 
       <!-- Cupom -->
-      <section id="secao-cupom">
+      <section id="secao-cupom" style="display:none;">
         <h2>🏷️ Aplicar Cupom</h2>
         <input type="text" id="cupom" placeholder="Digite o código do cupom">
         <div class="actions">
@@ -68,12 +72,12 @@
       </section>
 
       <!-- Pagamento -->
-      <section id="pagamento">
+      <section id="pagamento" style="display:none;">
         <div id="wrapNormalBtn" class="pagamento-btn">
           <h3>Comprar sem cupom</h3>
           <div id="botaoNormal"></div>
         </div>
-        <div id="wrapCupomBtn" class="pagamento-btn">
+        <div id="wrapCupomBtn" class="pagamento-btn" style="display:none;">
           <h3>Comprar com cupom</h3>
           <div id="botaoCupom"></div>
         </div>

@@ -18,11 +18,11 @@ async function carregarEventos() {
         card.classList.add('card-evento');
 
         card.innerHTML = `
-    <img src="${evento.foto_url}" alt="${evento.nome}">
-    <h3>${evento.nome}</h3>
-    <p><strong>${Number(evento.valor).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</strong></p>
-    <button class="btn-detalhes" onclick="irParaDetalhes(${evento.id})">Ver Detalhes</button>
-`;
+            <img src="${evento.foto_url}" alt="${evento.nome}">
+            <h3>${evento.nome}</h3>
+            <p><strong>${Number(evento.valor).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</strong></p>
+            <button class="btn-detalhes" onclick="irParaDetalhes(${evento.id})">Ver Detalhes</button>
+        `;
 
         listaEventos.appendChild(card);
     });
@@ -32,7 +32,25 @@ function irParaDetalhes(id) {
     window.location.href = `detalhes.html?id=${id}`;
 }
 
-document.addEventListener("DOMContentLoaded", carregarEventos);
+document.addEventListener("DOMContentLoaded", () => {
+    carregarEventos();
+
+    // 🔹 Se o usuário acabou de concluir uma compra
+    if (localStorage.getItem("compraRealizada") === "true") {
+        localStorage.removeItem("compraRealizada");
+
+        // Cria popup estilizado
+        const popup = document.createElement("div");
+        popup.classList.add("popup-sucesso");
+        popup.innerHTML = `
+            <p>✅ Compra concluída com sucesso!</p>
+        `;
+        document.body.appendChild(popup);
+
+        // Auto remove após 5 segundos
+        setTimeout(() => popup.remove(), 5000);
+    }
+});
 
 
 // =======================
