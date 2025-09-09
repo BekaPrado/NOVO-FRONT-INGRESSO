@@ -172,9 +172,9 @@ body {
   box-shadow: 0 12px 35px rgba(30, 144, 255, 0.5);
 }
 .card-evento img {
-  width: 100%;
-  max-width: 250px;
-  height: 160px;
+  width: 110%;
+  max-width: 290px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   margin: 0 auto 1rem auto;
@@ -297,9 +297,9 @@ input:focus, select:focus {
 }
 .detalhe-card img {
   width: 100%;
-  max-width: 500px;
-  height: auto;
-  max-height: 300px;
+  max-width: 700px;
+  height: 1000px;
+  max-height: 500px;
   object-fit: cover;
   border-radius: 12px;
   margin: 0 auto 1.5rem auto;

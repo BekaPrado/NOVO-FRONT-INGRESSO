@@ -478,6 +478,10 @@ const AdminUI = {
         </div>
 
         <div id="wrapEmpresas" style="margin-top:12px" class="table-wrap">
+        <div style="margin-top:14px; display:flex; justify-content:flex-end">
+  <button class="btn" id="btnExportarCompras">📊 Exportar para Excel</button>
+</div>
+
           <table>
             <thead>
               <tr><th>Empresa</th><th>Evento</th><th>Ver Participantes</th></tr>
@@ -548,6 +552,11 @@ const AdminUI = {
   } catch (err) {
     console.error(err);
     Toast.show("Erro ao buscar eventos.", "error");
+
+    document.getElementById("btnExportarCompras").addEventListener("click", () => {
+  window.location.href = "http://localhost:5050/v1/100open/exportar-compras";
+});
+
   }
 },
 
